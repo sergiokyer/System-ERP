@@ -1,0 +1,17 @@
+// Arquivo: prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // utilizacao do postgresql = nao sera necessario mudanca
+  provider = "postgresql" 
+  url      = env("DATABASE_URL")
+}
+
+// Modelo de exemplo para salvar a data do backup
+model SystemSettings {
+  key   String @id @unique
+  value String
+}

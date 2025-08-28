@@ -1,0 +1,108 @@
+1. Para Iniciar o Projeto (Rodar Localmente)
+O primeiro passo é instalar as dependências e iniciar o servidor de desenvolvimento.
+
+Pré-requisitos:
+Antes de tudo, você precisa ter o Node.js e o PNPM instalados na sua máquina.
+
+Instalar Node.js: Baixe a versão LTS no site oficial.
+
+Instalar PNPM: Após instalar o Node.js, abra seu terminal (PowerShell, CMD, etc.) e rode o comando:
+
+Bash
+
+npm install -g pnpm
+Passos para Rodar o Projeto:
+Abra o Terminal no VS Code:
+
+A imagem mostra que seu terminal já está aberto no diretório correto: C:\Users\kyerzin\Documents\Projetos\Projeto ERP.
+
+Caso não estivesse, você pode usar o atalho Ctrl + ' (control + aspas simples) para abrir um novo terminal.
+
+Instale as Dependências:
+
+Como o projeto usa PNPM (identificado pelo arquivo pnpm-lock.yaml), o comando para instalar tudo que o projeto precisa é:
+
+Bash
+
+pnpm install
+Este comando vai ler o arquivo package.json, baixar todas as bibliotecas necessárias e criar a pasta node_modules.
+
+Inicie o Servidor de Desenvolvimento:
+
+Depois que a instalação terminar, o comando padrão para iniciar um projeto Next.js é:
+
+Bash
+
+pnpm dev
+Aguarde um momento. O terminal irá informar que o servidor está rodando, geralmente no endereço http://localhost:3000.
+
+Abra esse endereço no seu navegador e você verá o projeto funcionando!
+
+Possível Problema: Variáveis de Ambiente
+Muitos projetos precisam de um arquivo de "variáveis de ambiente" para se conectar a bancos de dados ou APIs.
+
+Procure por um arquivo chamado .env.example ou .env.local.example.
+
+Se ele existir, crie uma cópia e renomeie-a para .env.local.
+
+Abra o novo arquivo .env.local e preencha as variáveis que estiverem faltando.
+
+2. Para Fazer Manutenção no Projeto
+Agora que o projeto está rodando, vamos entender como fazer alterações e dar manutenção.
+
+Entendendo a Estrutura de Pastas:
+app/: Esta é a pasta principal onde ficam as páginas e rotas do seu sistema. No Next.js moderno, cada pasta dentro de app pode representar uma nova rota (URL). O arquivo page.tsx dentro de uma pasta é o que será renderizado.
+
+components/: Aqui ficam os componentes reutilizáveis da sua aplicação (botões, menus, formulários, cards, etc.). É uma boa prática criar componentes pequenos e específicos.
+
+public/: Contém arquivos estáticos que serão acessados diretamente pelo navegador, como imagens (.png, .svg), favicons e fontes.
+
+styles/: Arquivos de estilização global, como CSS.
+
+hooks/: Para criar "React Hooks" customizados, que são funções para encapsular e reutilizar lógicas com estado.
+
+lib/: Funções utilitárias, configurações de bibliotecas, ou código que não se encaixa nas outras pastas (ex: funções para formatar datas, fazer requisições a uma API, etc.).
+
+Como Fazer Alterações:
+Modificar uma Página: Encontre a rota que deseja alterar dentro da pasta app/ e edite o arquivo page.tsx correspondente.
+
+Modificar um Componente: Se a alteração é em um elemento que aparece em várias páginas (como o cabeçalho ou rodapé), procure o componente na pasta components/ e edite seu arquivo.
+
+Salvar e Visualizar: O servidor de desenvolvimento (pnpm dev) tem Hot Reload. Isso significa que assim que você salvar um arquivo, a página no seu navegador será atualizada automaticamente com as novas mudanças. É muito prático!
+
+Gerenciando Dependências (Bibliotecas):
+Para adicionar uma nova biblioteca:
+
+Bash
+
+pnpm add nome-da-biblioteca
+Para remover uma biblioteca:
+
+Bash
+
+pnpm remove nome-da-biblioteca
+Para atualizar as bibliotecas:
+
+Bash
+
+pnpm update
+Versionamento com Git:
+O arquivo .gitignore indica que o projeto usa Git para controle de versão. É fundamental para a manutenção.
+
+Crie uma branch: Antes de iniciar uma nova funcionalidade ou correção, crie uma nova "branch" (ramificação):
+
+Bash
+
+git checkout -b nome-da-nova-funcionalidade
+Salve suas alterações (commit): Após fazer as modificações, salve seu progresso:
+
+Bash
+
+git add .
+git commit -m "feat: adiciona formulário de cadastro de clientes"
+Envie para o repositório remoto (como GitHub ou GitLab):
+
+Bash
+
+git push origin nome-da-nova-funcionalidade
+Seguindo esses passos, você conseguirá rodar o projeto localmente, entender sua estrutura e começar a fazer as manutenções necessárias. Bom trabalho!
